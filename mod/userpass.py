@@ -54,7 +54,6 @@ def help(code):
         print("     -P file   : Select a password to put with each username")
         print("               : Use files with less than 100 passwords")
         print("               : This options catches only 100 passwords in a file")
-        print("     -B file   : Use if the wordlist (passwords) have more than 100 lines")
         print("     -o file   : Select the name for the output file")
         print("     -s char   : Select the char to separate the username from password")
         print("               : Default is ' ', it could be :,%$ etc...")
@@ -75,8 +74,6 @@ def help(code):
         print("               : Default is %p, only passwords passed by -p, -P or -B")
         print("     Ex:%l%0%0 : Password will go from 'user00' to 'user99'")
     elif code == 3:
-        print(bcolors.FAIL+"Incompatible options -B and -P"+bcolors.ENDC)
-    elif code == 4:
         print(bcolors.FAIL+"You must give at least one username with options -l or -L"+bcolors.ENDC)
     if code != 0:
         exit()
@@ -248,7 +245,6 @@ def main(argv):
     global userfile
     global passwords
     global passfile
-    global bigfile
     global output
     global form
     global separator
@@ -258,7 +254,7 @@ def main(argv):
         return 1
 
     try:
-        opts, args = getopt.getopt(argv[2:], "hl:L:p:P:B:o:f:s:",[])
+        opts, args = getopt.getopt(argv[2:], "hl:L:p:P:o:f:s:",[])
     except getopt.GetoptError as err:
         print(str(err))
         return 1
@@ -274,8 +270,6 @@ def main(argv):
             passwords.append(a)
         elif o == "-P":
             passfile = str(a)
-        elif o == "-B":
-            bigfile = str(a)
         elif o == "-o":
             output = str(a)
         elif o == "-f":
@@ -287,9 +281,6 @@ def main(argv):
         code = scan_format(form);
         if code == 1:
             return 2
-
-    if passfile != "" and bigfile !="":
-        return 3
 
     if usernames == [] and userfile == "":
         return 4

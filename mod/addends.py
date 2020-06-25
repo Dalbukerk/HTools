@@ -2,8 +2,10 @@ import getopt
 
 global debugbool
 debugbool = False
+global verbose
+verbose = False
 global ends
-ends = ['123', "!@#", "12", "12345"]
+ends = ['', '123', "!@#", "12", "12345", '!@!']
 global bool_common
 bool_common = False #Set if option -c is used, to write common_ends, the list above
 global numbers_string
@@ -80,6 +82,7 @@ def help(code):
         print("mode addends opetions")
         print("---------------------")
         print("     -h           : Show this help")
+        print("     -v           : Print passwords in screen")
         print("     -c           : Add common ends like 123, !@#, 12345 at the end of each password")
         print("                  : No arg, the script will do a list for you")
         print("     -n <numbers> : Add number list at the end of each password")
@@ -277,6 +280,7 @@ def write():
     global ends
     global input_file
     global output_file
+    global verbose
 
     fileo = open(output_file, "w")
 
@@ -284,11 +288,15 @@ def write():
         for p in passes:
             for end in ends:
                 fileo.write(p+end+'\n')
+                if verbose:
+                    print(p+end)
         if input_file != "":
             filei = open(input_file, "r")
             for line in filei:
                 for end in ends:
                     fileo.write(line[:-1]+end+'\n')
+                    if verbose:
+                        print(p+end)
     else:
         total = 1
         for i in ind_max:
@@ -297,6 +305,8 @@ def write():
             for i in range(total):
                 end = getpass()
                 fileo.write(p+end+'\n')
+                if verbose:
+                    print(p+end)
                 sumit()
             iteratorz()
         if input_file != "":
@@ -305,8 +315,12 @@ def write():
                 for i in range(total):
                     end = getpass()
                     fileo.write(p+end+'\n')
+                    if verbose:
+                        print(p+end)
                     sumit()
                 iteratorz()
+
+    fileo.close()
 
 
 def main(argv):
@@ -319,13 +333,14 @@ def main(argv):
     global Bool_List
     global form
     global debugbool
+    global verbose
 
     if len(argv) == 2:
         return 1;
 
     try:
-        opts, args = getopt.getopt(argv[2:], "hcn:E:p:i:o:Lf:d",[])
-    except getopt.GetoptErrpr as err:
+        opts, args = getopt.getopt(argv[2:], "hvcn:E:p:i:o:Lf:d",[])
+    except getopt.GetoptError as err:
         print(str(err))
         return 1
 
@@ -350,6 +365,8 @@ def main(argv):
             form = str(a)
         elif o == "-d":
             debugbool = True
+        elif o == "-v":
+            verbose = True
 
     if form != "":
         scan_format(form)
