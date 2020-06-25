@@ -1,2 +1,4 @@
-# HTools
-A bunch of simple tools, created in my studies, for pentesting and hacking.
+# WordlistEditor
+A simple tool to edit and create some wordlists easily.
+
+
