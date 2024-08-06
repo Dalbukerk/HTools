@@ -13,6 +13,10 @@ def help(code):
     print("     -f file   : first file")
     print("     -F file   : second file")
     print("     -o file   : Output file")
+    print("     -s 'char' : Character to be used as separator")
+    print("               : Example: -s : means word1:word2")
+    print("               : If no char is set by option -s, mix")
+    print("               : will use '',@,#,$,&...")
     print("--------------")
     print("  Usage: wed.py mix -f file1.txt -F file2.txt -s \"@\"")
     
