@@ -5,7 +5,7 @@ debugbool = False
 global verbose
 verbose = False
 global ends
-ends = ['', '123', "!@#", "12", "12345", '!@!', "321", "21", "!1", "2@", "1234", "4321"]
+ends = ['', '123', "!@#", "12", "12345", '!@!', "321", "21", "!1", "2@", "1234", "4321", "12345", "54321"]
 global bool_common
 bool_common = False #Set if option -c is used, to write common_ends, the list above
 global numbers_string
