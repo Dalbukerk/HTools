@@ -1,0 +1,5 @@
+# Substitue vowels with symbols ( a -> @ )
+a:@
+e:&
+i:!,|
+o:()

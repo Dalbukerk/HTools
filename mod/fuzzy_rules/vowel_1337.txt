@@ -1,0 +1,5 @@
+# Substitute vowels with numbers ( a -> 4 )
+a:4
+e:3
+i:1
+o:0
