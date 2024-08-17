@@ -1,0 +1,7 @@
+# Substitute consonants with symbols ( s -> $ )
+t:#
+s:$
+h:#
+l:|
+z:%
+x:%

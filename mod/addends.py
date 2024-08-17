@@ -5,7 +5,7 @@ debugbool = False
 global verbose
 verbose = False
 global ends
-ends = ['', '123', "!@#", "12", "12345", '!@!']
+ends = ['', '123', "!@#", "12", "12345", '!@!', "321", "21", "!1", "2@", "1234", "4321"]
 global bool_common
 bool_common = False #Set if option -c is used, to write common_ends, the list above
 global numbers_string
@@ -269,7 +269,6 @@ def getpass():
     for i in range(len(iterator)):
         passwd = passwd + maker[i][iterator[i]]
     return passwd
-1
 
 def write():
     global form
@@ -282,21 +281,21 @@ def write():
     global output_file
     global verbose
 
+    symbols = ['','!','@','#','$','%','&']
+
     fileo = open(output_file, "w")
 
     if form == "":
         for p in passes:
             for end in ends:
-                fileo.write(p+end+'\n')
-                if verbose:
-                    print(p+end)
+                for s in symbols:
+                    fileo.write(p+s+end+'\n')
         if input_file != "":
             filei = open(input_file, "r")
             for line in filei:
                 for end in ends:
-                    fileo.write(line[:-1]+end+'\n')
-                    if verbose:
-                        print(p+end)
+                    for s in symbols:
+                        fileo.write(line[:-1]+s+end+'\n')
     else:
         total = 1
         for i in ind_max:

@@ -1,0 +1,8 @@
+# Substitute consonants with numbers ( t -> 7,1 )
+t:7,1
+s:5
+g:8
+l:1
+z:2
+v:7
+b:8

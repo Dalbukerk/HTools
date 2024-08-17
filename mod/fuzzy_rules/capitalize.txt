@@ -1,3 +1,4 @@
+# substitute a for A
 a:A
 b:B
 c:C

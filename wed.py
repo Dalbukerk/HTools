@@ -24,7 +24,7 @@ def main():
         exit()
     else:
         mode = str(sys.argv[1])
-    modes = ["help", "userpass", "fuzzy", "addends", "mix"]
+    modes = ["help", "userpass", "fuzzy", "addends", "mix", "fuzzy2"]
     if mode not in modes:
         help(sys.argv)
     elif mode == "help":
@@ -37,13 +37,15 @@ def main():
         code = addends.main(sys.argv)
         if code != 0:
             addends.help(code);
-    elif mode == "fuzzy":
-        code = fuzzy.main(sys.argv)
-        if code != 0:
-            fuzzy.help(code);
+#    elif mode == "fuzzy":
+#        code = fuzzy.main(sys.argv)
+#        if code != 0:
+#            fuzzy.help(code);
     elif mode == "mix":
         code = mix.main(sys.argv)
         if code != 0:
             mix.help(code);
+    elif mode == "fuzzy":
+        code = fuzzy2.main(sys.argv)
 
 main()
